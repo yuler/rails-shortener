@@ -2,7 +2,7 @@
 service: rails_shortener
 
 # Name of the container image.
-image: yuler/rails_shortener
+image: yule/rails_shortener
 
 # Deploy to these servers.
 servers:
