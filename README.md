@@ -4,4 +4,5 @@
 
 ## Note
 
-This repo is for learn rails from [Build a URL Shortener with Rails 7](https://gorails.com/series/build-a-url-shortener-with-rails-7)
+- This repo is for learn rails from [Build a URL Shortener with Rails 7](https://gorails.com/series/build-a-url-shortener-with-rails-7)
+- Deploy by [kamal](https://kamal-deploy.org/)
