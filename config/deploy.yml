@@ -6,7 +6,9 @@ image: yule/rails_shortener
 
 # Deploy to these servers.
 servers:
-  - 8.140.245.144
+  web:
+    hosts:
+      - 8.140.245.144
 
 # Credentials for your image host.
 registry:
@@ -64,7 +66,11 @@ env:
 #       - data:/data
 
 # Configure custom arguments for Traefik
-# traefik:
+traefik:
+  host_port: 3000
+  # options:
+  #   publish:
+  #     - 3000:3000
 #   args:
 #     accesslog: true
 #     accesslog.format: json
