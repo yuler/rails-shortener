@@ -7,8 +7,7 @@ image: yule/rails_shortener
 # Deploy to these servers.
 servers:
   web:
-    hosts:
-      - 8.140.245.144
+    - 8.140.245.144
 
 # Credentials for your image host.
 registry:
@@ -27,7 +26,6 @@ env:
     DB_HOST: 192.168.0.2
   secret:
     - RAILS_MASTER_KEY
-
 # Use a different ssh user than root
 # ssh:
 #   user: app
@@ -67,10 +65,10 @@ env:
 
 # Configure custom arguments for Traefik
 traefik:
-  host_port: 3000
-  # options:
-  #   publish:
-  #     - 3000:3000
+  host_port: 3001
+# options:
+#   publish:
+#     - 3000:80
 #   args:
 #     accesslog: true
 #     accesslog.format: json
