@@ -1,0 +1,20 @@
+<% if @link.errors[:url].any? %>
+  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+    <strong class="font-bold">Oops!</strong>
+    <span class="block sm:inline">Please fix the following errors:</span>
+    <ul>
+      <% @link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @link do |f| %>
+  <div class="flex gap-2 items-center">
+    <div class="flex-1">
+      <%= f.text_field :url, class: "w-full rounded", autofocus: true, placeholder: "https://github.com/yuler/rails-shortener" %>  
+    </div>
+    <%= f.submit "Submit", class: "px-3 py-2 bg-gray-100 rounded cursor-pointer" %>
+  </div>
+<% end %>

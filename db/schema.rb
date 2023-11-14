@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_161646) do
     t.string "title"
     t.string "description"
     t.string "image"
-    t.integer "view_counts", default: 0
+    t.integer "views_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
