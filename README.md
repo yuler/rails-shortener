@@ -1,6 +1,6 @@
 # rails shortener
 
-> A url shortener power by rails
+> A url shortener power by rails, <http://8.140.245.144>
 
 ## Note
 

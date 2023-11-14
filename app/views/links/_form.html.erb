@@ -1,13 +1,9 @@
 <% if @link.errors[:url].any? %>
-  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-    <strong class="font-bold">Oops!</strong>
-    <span class="block sm:inline">Please fix the following errors:</span>
-    <ul>
-      <% @link.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
+  <ul class="mb-4 px-4 py-3 rounded  bg-red-100 border border-red-400 text-red-700" role="alert">
+    <% @link.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <%= form_for @link do |f| %>
