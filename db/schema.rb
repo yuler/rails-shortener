@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_07_161646) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_15_022659) do
   create_table "links", force: :cascade do |t|
     t.string "url"
     t.string "title"
@@ -21,4 +21,22 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_161646) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "magic_links", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["token"], name: "index_magic_links_on_token", unique: true
+    t.index ["user_id"], name: "index_magic_links_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  add_foreign_key "magic_links", "users"
 end

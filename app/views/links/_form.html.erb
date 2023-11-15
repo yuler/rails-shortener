@@ -1,12 +1,5 @@
-<% if @link.errors[:url].any? %>
-  <ul class="mb-4 px-4 py-3 rounded  bg-red-100 border border-red-400 text-red-700" role="alert">
-    <% @link.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <%= form_for @link do |f| %>
+  <%= render partial: "shared/form_errors", locals: { object: f.object } %>
   <div class="flex gap-2 items-center">
     <div class="flex-1">
       <%= f.text_field :url, class: "w-full rounded", autofocus: true, placeholder: "https://github.com/yuler/rails-shortener" %>  
