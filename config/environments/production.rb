@@ -68,11 +68,11 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
-  # config.active_job.queue_adapter     = :resque
+  config.active_job.queue_adapter = :sidekiq
   # config.active_job.queue_name_prefix = "rails_shortener_production"
 
   # Action mailer
-  # TODO:
+  config.action_mailer.default_url_options = { from: ENV["SMTP_USERNAME"], host: ENV["SITE_HOST"] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.exmail.qq.com",
