@@ -1,0 +1,2 @@
+module MagicLinksHelper
+end
