@@ -10,9 +10,12 @@ class User < ApplicationRecord
     normalize_email if new_record?
   end
 
+  def generate_magic_token
+    signed_id expires_in: MAGIC_LINK_EXPIRATION, purpose: :sign_in
+  end
+
   def send_sign_in_mail!
-    magic_token = generate_magic_token
-    UserMailer.sign_in(self, magic_token).deliver_later
+    UserMailer.sign_in(self).deliver_later
   end
 
   private
@@ -30,9 +33,5 @@ class User < ApplicationRecord
     if email.present? && User.exists?(email_normalized: email_normalized)
       errors.add(:email, "has already been taken")
     end
-  end
-
-  def generate_magic_token
-    signed_id expires_in: MAGIC_LINK_EXPIRATION, purpose: :sign_in
   end
 end

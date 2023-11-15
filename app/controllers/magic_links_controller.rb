@@ -1,5 +1,7 @@
 class MagicLinksController < ApplicationController
-  def edit
-    @magic_link = MagicLink.find(params[:magic_token])
+  def show
+    @magic_token = params[:id]
+    @user = User::find_signed!(@magic_token, purpose: :sign_in)
+    x
   end
 end
