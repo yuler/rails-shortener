@@ -71,6 +71,20 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "rails_shortener_production"
 
+  # Action mailer
+  # TODO:
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.exmail.qq.com",
+    port: 465,
+    domain: "yuler.cc",
+    user_name: ENV["SMTP_USERNAME"],
+    password: ENV["SMTP_PASSWORD"],
+    authentication: "plain",
+    enable_starttls: true,
+    open_timeout: 5,
+    read_timeout: 5,
+  }
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.

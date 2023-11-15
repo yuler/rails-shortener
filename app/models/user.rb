@@ -15,7 +15,7 @@ class User < ApplicationRecord
   end
 
   def send_sign_in_mail!
-    UserMailer.sign_in(self).deliver_later
+    UserMailer.with(user: self).sign_in.deliver_later
   end
 
   private
