@@ -5,11 +5,11 @@ one:
   title: MyString
   description: MyString
   image: MyString
-  view_counts: 1
+  views_count: 1
 
 two:
   url: MyString
   title: MyString
   description: MyString
   image: MyString
-  view_counts: 1
+  views_count: 1

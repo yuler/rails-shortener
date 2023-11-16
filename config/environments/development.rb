@@ -37,7 +37,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Action mailer
-  config.action_mailer.default_url_options = { from: ENV["SMTP_USERNAME"], host: ENV["SITE_HOST"] }
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false

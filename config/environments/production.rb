@@ -72,14 +72,15 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "rails_shortener_production"
 
   # Action mailer
-  config.action_mailer.default_url_options = { from: ENV["SMTP_USERNAME"], host: ENV["SITE_HOST"] }
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_options = { from: ENV.fetch("SMTP_USERNAME") { } }
+  config.action_mailer.default_url_options = { host: ENV.fetch("SITE_HOST") { "localhost:3000" } }
   config.action_mailer.smtp_settings = {
     address: "smtp.exmail.qq.com",
-    port: 465,
+    port: 25,
     domain: "yuler.cc",
-    user_name: ENV["SMTP_USERNAME"],
-    password: ENV["SMTP_PASSWORD"],
+    user_name: ENV.fetch("SMTP_USERNAME") { },
+    password: ENV.fetch("SMTP_PASSWORD") { },
     authentication: "plain",
     enable_starttls: true,
     open_timeout: 5,

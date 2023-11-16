@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration[7.1]
     create_table :users do |t|
       t.string :username
       t.string :email, null: false
-
+      t.datetime :last_sign_in_at
       t.timestamps
     end
 
