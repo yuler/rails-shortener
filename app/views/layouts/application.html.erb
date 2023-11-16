@@ -12,6 +12,22 @@
   </head>
 
   <body>
+    <!-- TODO: Closeable -->
+    <%= tag.div notice, class: "bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4", style: "position: fixed; top: 0; left: 0; right: 0;" if notice %>
+    <%= tag.div alert, class: "bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4", style: "position: fixed; top: 0; left: 0; right: 0;" if alert %>
+    <header class="bg-gray-800 text-white flex justify-between items-center px-5 py-3">
+      <!-- <div>
+        <a href="/" class="text-xl font-bold">Shortener</a>
+      </div> -->
+      <div>
+        <% if Current.user %>
+          <%= link_to "Logout", "#", method: :delete, class: "text-white font-medium mr-4" %>
+          <%= link_to "Dashboard", "#", class: "text-white font-medium" %>
+        <% else %>
+          <%= link_to "Sign in", sign_in_path, class: "text-white font-medium mr-4" %>
+        <% end %>
+      </div>
+    </header>
     <main class="prose mx-auto mt-28 px-5">
       <%= yield %>
     </main>
