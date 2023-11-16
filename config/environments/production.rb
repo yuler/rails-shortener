@@ -77,14 +77,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV.fetch("SITE_HOST") { "localhost:3000" } }
   config.action_mailer.smtp_settings = {
     address: "smtp.exmail.qq.com",
-    port: 25,
+    port: 465,
     domain: "yuler.cc",
     user_name: ENV.fetch("SMTP_USERNAME") { },
     password: ENV.fetch("SMTP_PASSWORD") { },
     authentication: "plain",
     enable_starttls: true,
-    open_timeout: 5,
-    read_timeout: 5,
+    ssl: true,
+    open_timeout: 30,
+    read_timeout: 30,
   }
   config.action_mailer.perform_caching = false
 
