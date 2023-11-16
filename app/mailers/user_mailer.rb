@@ -1,9 +1,7 @@
 class UserMailer < ApplicationMailer
-  default from: User::MAILER_FROM_EMAIL
-
-  def sign_in
+  def magic_link
     @user = params[:user]
-    @magic_token = @user.generate_magic_token
+    @magic_token = @user.generate_token_for(:magic_link)
 
     mail to: @user.email, subject: "Magic sign in link!"
   end

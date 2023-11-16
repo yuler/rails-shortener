@@ -5,16 +5,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user = User.find_by(email_normalized: @user.email_normalized)
+    @user = User.find_by(email: @user.email)
     if @user
-      @user.send_sign_in_mail!
+      @user.send_magic_link_mail!
       redirect_to root_path, notice: "Email send success"
       return
     end
 
     @user = User.new(user_params)
     if @user.save
-      @user.send_sign_in_mail!
+      @user.send_magic_link_mail!
       flash[:success] = "Email send success"
       redirect_to root_path
     else

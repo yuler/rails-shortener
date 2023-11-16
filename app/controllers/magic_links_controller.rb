@@ -1,7 +1,11 @@
 class MagicLinksController < ApplicationController
   def show
-    @magic_token = params[:id]
-    @user = User::find_signed!(@magic_token, purpose: :sign_in)
-    x
+    user = User.find_by_token_for(:magic_link, params[:token])
+    if user
+      login(user)
+      redirect_to root_path, notice: "You're signed in!"
+    else
+      redirect_to root_path, alert: "Invalid magic link"
+    end
   end
 end
