@@ -74,6 +74,9 @@ env:
     # SMTP
     - SMTP_USERNAME
     - SMTP_PASSWORD
+    # SIDEKIQ
+    - SIDEKIQ_USERNAME
+    - SIDEKIQ_PASSWORD
 
 # Using volumes
 volumes:
