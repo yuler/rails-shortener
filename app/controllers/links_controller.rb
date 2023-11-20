@@ -1,10 +1,11 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :store_url_in_cookie, only: [:create]
   before_action :authenticate_user!, only: [:create]
 
   def index
     @links = Link.recent_first
-    @link ||= Link.new
+    @link ||= Link.new(url: cookies[:link_form_url])
   end
 
   def show
@@ -20,6 +21,7 @@ class LinksController < ApplicationController
     @link = Link.new(link_params.with_defaults(user: Current.user))
     if @link.save
       flash[:success] = "link successfully created"
+      cookies.deleted(:link_form_url)
       redirect_to root_path
     else
       index
@@ -55,5 +57,12 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:url)
+  end
+
+  def store_url_in_cookie
+    return if Current.user
+
+    url = params[:link][:url]
+    cookies[:link_form_url] = { value: url, expired: 1.hour.from_now } if url
   end
 end
