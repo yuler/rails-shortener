@@ -7,15 +7,16 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  get "sign_in", to: "users#new"
-  post "sign_in", to: "users#create"
+  # Sessions
+  get "sign_in", to: "sessions#new"
+  post "sign_in", to: "sessions#create"
   delete "sign_out", to: "sessions#destroy"
 
   resources :links
   resources :magic_links, param: :token, only: [:show]
 
-  root "links#index"
   get "/:code", to: "links#show", as: :short_link
+  root "links#index"
 
   # Sidekiq, https://github.com/sidekiq/sidekiq/wiki/Monitoring#rails-http-basic-auth-from-routes
   # config/routes.rb
