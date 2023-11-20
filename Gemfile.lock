@@ -130,6 +130,7 @@ GEM
     minitest (5.20.0)
     msgpack (1.7.2)
     mutex_m (0.2.0)
+    nanoid (2.0.0)
     net-imap (0.4.4)
       date
       net-protocol
@@ -269,6 +270,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  nanoid (~> 2.0)
   puma (>= 5.0)
   rails (~> 7.1.1)
   redis (>= 4.0.1)

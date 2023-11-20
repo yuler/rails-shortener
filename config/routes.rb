@@ -11,11 +11,10 @@ Rails.application.routes.draw do
   post "sign_in", to: "users#create"
 
   resources :links
-  resources :views, path: :v, only: [:show]
   resources :magic_links, param: :token, only: [:show]
 
-  # Defines the root path route ("/")
   root "links#index"
+  get "/:code", to: "links#show", as: :short_link
 
   # Sidekiq, https://github.com/sidekiq/sidekiq/wiki/Monitoring#rails-http-basic-auth-from-routes
   # config/routes.rb

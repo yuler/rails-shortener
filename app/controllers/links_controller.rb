@@ -7,6 +7,9 @@ class LinksController < ApplicationController
   end
 
   def show
+    redirect_to root_path, alert: "Link expired" and return unless @link
+    @link.views.create(ip: request.ip, user_agent: request.user_agent)
+    redirect_to @link.url, allow_other_host: true
   end
 
   def edit
@@ -43,6 +46,11 @@ class LinksController < ApplicationController
   end
 
   private
+
+  def set_link
+    @link = Link.find_by(id: params[:id]) if params[:id]
+    @link = Link.find_by(code: params[:code]) if params[:code]
+  end
 
   def link_params
     params.require(:link).permit(:url)
