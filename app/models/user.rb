@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   enum role: { member: 0, admin: 1 }
 
+  has_many :links
+
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true, uniqueness: true
 
   # Example: `John.Doe+123@gmail.com` => `johndoe@gmail.com`

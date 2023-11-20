@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create]
 
   def index
     @links = Link.recent_first
@@ -16,7 +17,7 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(link_params)
+    @link = Link.new(link_params.with_defaults(user: Current.user))
     if @link.save
       flash[:success] = "link successfully created"
       redirect_to root_path
@@ -28,7 +29,7 @@ class LinksController < ApplicationController
 
   def update
     if @link.update(link_params)
-      redirect_to @link
+      redirect_to root_path
     else
       flash[:error] = "Something went wrong"
       render "edit"

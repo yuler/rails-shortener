@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get "sign_in", to: "users#new"
   post "sign_in", to: "users#create"
+  delete "sign_out", to: "sessions#destroy"
 
   resources :links
   resources :magic_links, param: :token, only: [:show]
