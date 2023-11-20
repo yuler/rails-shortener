@@ -16,14 +16,8 @@ class Link < ApplicationRecord
 
   def unique_code
     loop do
-      code = generate_nanoid
+      code = SecureRandom.alphanumeric(10)
       return code unless Link.exists?(code: code)
     end
-  end
-
-  ALPHABET = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".freeze
-
-  def generate_nanoid
-    Nanoid.generate(size: 10, alphabet: ALPHABET)
   end
 end

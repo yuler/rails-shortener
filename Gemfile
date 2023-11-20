@@ -72,5 +72,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-gem "nanoid", "~> 2.0"
