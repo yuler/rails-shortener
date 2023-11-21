@@ -21,10 +21,10 @@
       </div> -->
       <div>
         <% if Current.user %>
-          <%= button_to "Logout", sign_out_url, method: :delete, class: "text-white font-medium mr-4" %>
+          <%= button_to "Logout", logout_path, method: :delete, class: "text-white font-medium mr-4" %>
           <%= link_to "Dashboard", "#", class: "text-white font-medium" %>
         <% else %>
-          <%= link_to "Sign in", sign_in_path, class: "text-white font-medium mr-4" %>
+          <%= link_to "Sign in", login_path, class: "text-white font-medium mr-4" %>
         <% end %>
       </div>
     </header>

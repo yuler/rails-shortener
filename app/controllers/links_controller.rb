@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_link, only: %i[show edit update destroy]
   before_action :store_url_in_cookie, only: [:create]
   before_action :authenticate_user!, only: [:create]
 
@@ -10,6 +10,7 @@ class LinksController < ApplicationController
 
   def show
     redirect_to root_path, alert: "Link expired" and return unless @link
+
     @link.views.create(ip: request.ip, user_agent: request.user_agent)
     redirect_to @link.url, allow_other_host: true
   end

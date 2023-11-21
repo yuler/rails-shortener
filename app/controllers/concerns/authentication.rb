@@ -12,6 +12,6 @@ module Authentication
   end
 
   def authenticate_user!
-    redirect_to sign_in_url, notice: "You must be signed first" unless Current.user
+    redirect_to login_path, notice: "You must be signed first" unless Current.user
   end
 end

@@ -5,7 +5,7 @@
 
 <div class="mx-auto max-w-md p-6 bg-white dark:bg-gray-800 rounded-lg border">
   <h2 class="text-2xl font-semibold text-gray-700 dark:text-white">Sign in with Magic Link</h2>
-  <%= form_with model: @user, url: sign_in_path, class: "mt-8 space-y-4" do |f| %>
+  <%= form_with model: @user, url: login_path, class: "mt-8 space-y-4" do |f| %>
     <%= render partial: "shared/form_errors", locals: { object: f.object } %>
     <div class="space-y-2">
       <%= f.label :email, class: "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" %>
