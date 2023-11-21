@@ -8,6 +8,14 @@ class Link < ApplicationRecord
 
   validates :url, format: { with: /\Ahttps?:\/\/.*\z/, message: "must start with http:// or https://" }
 
+  after_save_commit if: :url_previously_changed? do
+    MetadataJob.perform_later(self)
+  end
+
+  after_update do
+    self.broadcast_replace_to(self)
+  end
+
   private
 
   def assign_code

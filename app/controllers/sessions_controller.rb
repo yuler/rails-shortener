@@ -15,11 +15,9 @@ class SessionsController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_magic_link_mail!
-      flash[:success] = "Email send success"
-      redirect_to root_path
+      redirect_to root_path, notice: "Email send success"
     else
-      flash[:error] = "Something went wrong"
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: "Something went wrong"
     end
   end
 

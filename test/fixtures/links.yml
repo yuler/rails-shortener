@@ -13,3 +13,7 @@ two:
   description: MyString
   image: MyString
   views_count: 1
+
+baidu:
+  url: http://www.baidu.com
+  code: baidu
