@@ -16,3 +16,11 @@
 - <https://github.com/thedevs-network/kutt>
 - <https://github.com/nelsontky/gh-pages-url-shortener>
 - <https://github.com/formkit/shorten>
+
+## TODO
+
+- [ ] Chart for daily click
+- [ ] Design Home Page
+- [ ] Add profile page
+- [ ] Expose result API
+- [ ] Add widget for other site embed
