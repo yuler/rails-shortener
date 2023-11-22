@@ -1,7 +1,14 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: %i[show edit update destroy]
+  before_action :set_link, only: %i[short show edit update destroy]
   before_action :store_url_in_cookie, only: [:create]
   before_action :authenticate_user!, only: [:create]
+
+  def short
+    redirect_to root_path, alert: "" and return unless @link
+
+    @link.views.create(ip: request.ip, user_agent: request.user_agent)
+    redirect_to @link.url, allow_other_host: true
+  end
 
   def index
     @links = Link.recent_first
@@ -9,10 +16,6 @@ class LinksController < ApplicationController
   end
 
   def show
-    redirect_to root_path, alert: "Link expired" and return unless @link
-
-    @link.views.create(ip: request.ip, user_agent: request.user_agent)
-    redirect_to @link.url, allow_other_host: true
   end
 
   def edit

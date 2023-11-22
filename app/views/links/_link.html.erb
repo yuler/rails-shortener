@@ -3,7 +3,7 @@
 
   <div class="grid grid-cols-8 items-center py-4">
     <div class="col-span-5">
-      <%= link.title || link.url %>
+      <%= link_to link.title || link.url, link_path(link) %>
       <%= tag.div link.description, class: "text-xs text-gray-700" %>
       <%= link_to short_link_path(link.code), target: :_blank, data: {turbo: false}, class: "no-underline" do %>
         <div class="flex gap-2 items-center">

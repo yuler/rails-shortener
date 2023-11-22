@@ -14,12 +14,12 @@ Rails.application.routes.draw do
   resources :magic_links, param: :token, only: [:show]
 
   # Links
-  resources :links, only: %i[index show create update destroy]
+  resources :links, only: %i[index show create edit update destroy]
+  # Short Link
+  get "/:code", to: "links#short", as: :short_link, constraints: { code: /[a-zA-Z0-9_-]{10}/ }
 
   # Root
   root "links#index"
-  # Short Link
-  get "/:code", to: "links#show", as: :short_link, constraints: { code: /[a-zA-Z0-9_-]{10}/ }
 
   # Sidekiq, refs: https://github.com/sidekiq/sidekiq/wiki/Monitoring#rails-http-basic-auth-from-routes
   if Rails.env.production?
