@@ -9,7 +9,7 @@ class User < ApplicationRecord
   normalizes :email, with: ->email { email.downcase.split("@").first.gsub(/\.|\+.*/, "") + "@" + email.split("@").last }
 
   generates_token_for :magic_link, expires_in: 15.minutes do
-    last_sign_in_at
+    last_logged_at
   end
 
   def send_magic_link_mail!

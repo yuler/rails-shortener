@@ -19,8 +19,6 @@
 
 ## TODO
 
-- [ ] Chart for daily click
-- [ ] Rename `last_logged_at`
 - [ ] Design Home Page
 - [ ] Add profile page
 - [ ] Expose result API

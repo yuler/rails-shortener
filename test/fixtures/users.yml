@@ -3,9 +3,9 @@
 one:
   username: one
   email: one@example.com
-  last_sign_in_at: <%= 1.day.ago %>
+  last_logged_at: <%= 1.day.ago %>
 
 two:
   username: two
   email: two@example.com
-  last_sign_in_at: nil
+  last_logged_at: nil

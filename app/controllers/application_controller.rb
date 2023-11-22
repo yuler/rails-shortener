@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include SetCurrentRequestDetails
 
   def login(user)
-    user.touch :last_sign_in_at
+    user.touch :last_logged_at
     reset_session
     session[:user_id] = user.id
     Current.user = user
