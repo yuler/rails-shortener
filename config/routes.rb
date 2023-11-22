@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get "/:code", to: "links#short", as: :short_link, constraints: { code: /[a-zA-Z0-9_-]{10}/ }
 
   # Root
-  root "links#index"
+  root "home#index"
 
   # Sidekiq, refs: https://github.com/sidekiq/sidekiq/wiki/Monitoring#rails-http-basic-auth-from-routes
   if Rails.env.production?
