@@ -1,0 +1,10 @@
+<%= form_with model: @token, url: settings_tokens_path do |f| %>
+  <%= render partial: "shared/form_errors", locals: { object: f.object } %>
+  <div class="flex gap-2 items-center">
+    <div class="flex-1">
+      <%= f.label "TOKEN" %>
+      <%= f.text_field :token, class: "w-full rounded", autofocus: true, placeholder: "Token name" %>  
+    </div>
+    <%= f.submit "Submit", class: "px-3 py-2 bg-gray-100 rounded cursor-pointer" %>
+  </div>
+<% end %>

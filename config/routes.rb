@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Sessions
-  get "login", to: "sessions#new", as: :login
-  post "login", to: "sessions#create"
-  delete "logout", to: "sessions#destroy", as: :logout
+  get "login" => "sessions#new", as: :login
+  post "login" => "sessions#create"
+  delete "logout" => "sessions#destroy", as: :logout
 
   # Magic Links
   resources :magic_links, param: :token, only: [:show]
@@ -17,6 +17,14 @@ Rails.application.routes.draw do
   resources :links, only: %i[index show create edit update destroy]
   # Short Link
   get "/:code", to: "links#short", as: :short_link, constraints: { code: /[a-zA-Z0-9_-]{10}/ }
+
+  # Settings
+  resource :settings do
+    resources :tokens
+    # member do
+    #   get :tokens
+    # end
+  end
 
   # Root
   root "home#index"

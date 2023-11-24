@@ -1,0 +1,6 @@
+<%= tag.div id: dom_id(token) do %>
+  <%= turbo_stream_from token %>
+
+  <%= token.name %>
+  <%= token.key %>
+<% end %>

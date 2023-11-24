@@ -24,17 +24,14 @@
 
       <nav class="flex gap-4">
         <% if Current.user %>
-          <%= link_to gavatar_image_tag(Current.user.email), "#", class: "w-10 h-10 border border-[2px] border-gray-800 rounded-full" %>
-          <!-- <%= button_to "Logout", logout_path, method: :delete, class: "text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white" %> -->
-          <!-- <%= link_to "Dashboard", "#", class: "text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white" %> -->
+          <%= link_to gavatar_image_tag(Current.user.email), settings_url, class: "w-10 h-10 border border-[2px] border-gray-800 rounded-full" %>
         <% else %>
           <%= link_to "Sign in", login_path, class: "text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white" %>
         <% end %>
       </nav>
     </header>
 
-    <main class="prose mx-auto mt-28 px-5">
-      
+    <main class="container h-[calc(100%-81px)]">
       <%= yield %>
     </main>
   </body>

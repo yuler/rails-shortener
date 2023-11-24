@@ -2,6 +2,7 @@ class User < ApplicationRecord
   enum role: { member: 0, admin: 1 }
 
   has_many :links
+  has_many :tokens
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true, uniqueness: true
 

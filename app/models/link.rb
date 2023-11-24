@@ -1,7 +1,7 @@
 class Link < ApplicationRecord
   before_create :assign_code
 
-  belongs_to :user, optional: true
+  belongs_to :user, optional: true, dependent: :destroy
   has_many :views, dependent: :destroy
 
   scope :recent_first, -> { order(created_at: :desc) }

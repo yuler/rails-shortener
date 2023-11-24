@@ -1,0 +1,19 @@
+<!-- FILEPATH: /Users/yule/Projects/rails-shortener/app/views/settings/show.html.erb -->
+<!-- BEGIN: abpxx6d04wxr -->
+<div class="py-8 w-full h-full flex gap-8">
+  <%= render "nav" %>
+
+  <div class="flex-1 rounded-lg border bg-card text-card-foreground shadow-sm p-8 space-y-4" data-v0-t="card">
+    <h2 class="text-2xl font-bold">General Settings</h2>
+    <p class="text-lg text-zinc-500 dark:text-zinc-400">Update your general account settings</p>
+    
+    <%= form_tag("/update_email", method: "POST") do %>
+      <div class="mb-4">
+        <%= label_tag(:email, "Change Email", class: "block text-xl font-semibold") %>
+        <%= email_field_tag(:email, nil, class: "mt-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300", required: true) %>
+      </div>
+      <p>TODO: </p>
+      <%= button_tag("Save", class: "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 px-4 py-2") %>
+    <% end %>
+  </div>
+</div>

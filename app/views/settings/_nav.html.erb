@@ -1,0 +1,6 @@
+<aside class="w-64 h-max p-6 space-y-6 border rounded-lg">
+  <nav class="flex flex-col gap-4">
+    <%= link_to "General", settings_path, class: "items-center px-6 py-2 text-xl #{'font-bold' if current_page?(settings_path)}" %>
+    <%= link_to "Tokens", settings_tokens_path, class: "items-center px-6 py-2 text-xl #{'font-bold' if current_page?(settings_tokens_path)}" %>
+  </nav>
+</aside>
