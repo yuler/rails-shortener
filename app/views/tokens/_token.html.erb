@@ -1,6 +1,9 @@
 <%= tag.div id: dom_id(token) do %>
   <%= turbo_stream_from token %>
 
-  <%= token.name %>
-  <%= token.key %>
+    <div class="flex gap-4 items-center">
+      <%= label :token, :value, token.name, class: "w-48 text-lg font-semibold" %>
+      <%= text_field :token, :value, value: token.value, class: "rounded flex-1" %>
+      <%= button_to "Delete", settings_token_path(token), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "font-medium px-2 py-1.5 rounded bg-red-600 text-white" %>
+    </div>
 <% end %>

@@ -20,6 +20,5 @@
 ## TODO
 
 - [ ] Design Home Page
-- [ ] Add profile page
 - [ ] Expose result API
 - [ ] Add widget for other site embed
