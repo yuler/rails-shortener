@@ -1,6 +1,4 @@
 <%= tag.div id: dom_id(token) do %>
-  <%= turbo_stream_from token %>
-
   <div class="flex gap-4 items-center">
     <%= label :token, :value, token.name, class: "w-48 text-lg font-semibold" %>
     <%= text_field :token, :value, value: token.value, class: "rounded flex-1" %>

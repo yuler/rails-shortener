@@ -4,6 +4,7 @@ class Link < ApplicationRecord
   belongs_to :user
   has_many :views, dependent: :destroy
 
+  default_scope { recent_first }
   scope :recent_first, -> { order(created_at: :desc) }
 
   validates :url, format: { with: /\Ahttps?:\/\/.*\z/, message: "must start with http:// or https://" }

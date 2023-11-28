@@ -5,6 +5,8 @@ class Token < ApplicationRecord
 
   validates :name, presence: true, uniqueness: { scope: :user_id }, length: { minimum: 3, maximum: 20 }
 
+  broadcasts_refreshes
+
   private
 
   def assign_value
