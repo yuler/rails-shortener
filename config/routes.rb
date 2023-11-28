@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :magic_links, param: :token, only: [:show]
 
   # Links
-  resources :links, only: %i[index show create edit update destroy]
+  resources :links, only: %i[show create edit update destroy]
   # Short Link
   get "/:code", to: "links#short", as: :short_link, constraints: { code: /[a-zA-Z0-9_-]{10}/ }
 

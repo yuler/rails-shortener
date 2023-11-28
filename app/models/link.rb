@@ -1,12 +1,14 @@
 class Link < ApplicationRecord
   before_create :assign_code
 
-  belongs_to :user, optional: true, dependent: :destroy
+  belongs_to :user
   has_many :views, dependent: :destroy
 
   scope :recent_first, -> { order(created_at: :desc) }
 
   validates :url, format: { with: /\Ahttps?:\/\/.*\z/, message: "must start with http:// or https://" }
+
+  broadcasts_refreshes
 
   after_save_commit if: :url_previously_changed? do
     MetadataJob.perform_later(self)

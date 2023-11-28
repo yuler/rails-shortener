@@ -22,38 +22,27 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(link_params.with_defaults(user: Current.user))
-    if @link.save
-      cookies.delete(:link_form_url)
-      redirect_to root_path, notice: "link successfully created"
-    else
-      index
-      render :index, status: :unprocessable_entity
-    end
+    Link.create! link_params.with_defaults(user: Current.user)
+    cookies.delete(:link_form_url)
+
+    redirect_to root_path, notice: "link successfully created"
   end
 
   def update
-    if @link.update(link_params)
-      redirect_to root_path
-    else
-      render "edit", alert: "Something went wrong"
-    end
+    @link.update link_params
+    redirect_to root_path
   end
 
   def destroy
-    if @link.destroy
-      notice = "Link was successfully deleted."
-    else
-      alert = "Something went wrong"
-    end
+    @link.destroy!
 
-    redirect_to root_path, notice: notice, alert: alert
+    redirect_to root_path, notice: "Link was successfully deleted."
   end
 
   private
 
   def set_link
-    @link = Link.find_by(id: params[:id]) if params[:id]
+    @link = Link.find(params[:id]) if params[:id]
     @link = Link.find_by(code: params[:code]) if params[:code]
   end
 
