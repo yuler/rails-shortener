@@ -35,7 +35,7 @@ class Metadata
     new(fetch_html url)
   end
 
-  def self.fetch_html(uri_str, limit = 10)
+  def self.fetch_html(uri_str, scheme = URI(uri_str).scheme, limit = 10)
     raise ArgumentError, "too many HTTP redirects" if limit == 0
 
     response = Net::HTTP.get_response(URI(uri_str))
@@ -45,8 +45,9 @@ class Metadata
       response.body
     when Net::HTTPRedirection
       location = response["location"]
-      warn "redirected to #{location}"
-      fetch_html(location, limit - 1)
+      location = "#{scheme}:#{location}" if URI(location).scheme.nil?
+      warn "Redirected to #{location}"
+      fetch_html(location, scheme, limit - 1)
     else
       response.value
     end

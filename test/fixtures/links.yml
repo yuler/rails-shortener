@@ -17,3 +17,9 @@ two:
 baidu:
   url: http://www.baidu.com
   code: baidu
+  user: <%= User.first() %>
+
+zhihu:
+  url: http://zhihu.com
+  code: zhihu
+  user: <%= User.first() %>

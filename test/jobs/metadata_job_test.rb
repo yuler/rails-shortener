@@ -9,4 +9,10 @@ class MetadataJobTest < ActiveJob::TestCase
     assert_match /^全球领先的中文搜索引擎/, link.description
     assert_equal nil, link.image
   end
+
+  # test "fetch zhihu metadata" do
+  #   link = links(:zhihu)
+  #   MetadataJob.perform_now(link)
+  #   p link
+  # end
 end
