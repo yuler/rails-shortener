@@ -1,0 +1,19 @@
+require: rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.2.2
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+Style/Documentation:
+  Enabled: false
+Layout/MultilineOperationIndentation:
+  Enabled: false
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false

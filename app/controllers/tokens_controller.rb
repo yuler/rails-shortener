@@ -25,7 +25,7 @@ class TokensController < ApplicationController
     end
   end
 
-  @private
+  private
 
   def token_params
     params.require(:token).permit(:name)
