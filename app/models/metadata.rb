@@ -9,9 +9,9 @@ class Metadata
 
   def attributes
     {
-      title: title,
-      description: description,
-      image: image,
+      title:,
+      description:,
+      image:,
     }
   end
 
@@ -32,7 +32,7 @@ class Metadata
   end
 
   def self.retrieve_from(url)
-    new(fetch_html url)
+    new(fetch_html(url))
   end
 
   def self.fetch_html(uri_str, scheme = URI(uri_str).scheme, limit = 10)

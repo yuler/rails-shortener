@@ -3,7 +3,7 @@ require "test_helper"
 class UserMailerTest < ActionMailer::TestCase
   test "magic_link" do
     user = users(:one)
-    mail = UserMailer.with(user: user).magic_link
+    mail = UserMailer.with(user:).magic_link
 
     assert_equal "Magic sign in link!", mail.subject
     assert_equal [user.email], mail.to

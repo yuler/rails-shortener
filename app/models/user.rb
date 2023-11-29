@@ -7,7 +7,9 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true, uniqueness: true
 
   # Example: `John.Doe+123@gmail.com` => `johndoe@gmail.com`
-  normalizes :email, with: ->email { email.downcase.split("@").first.gsub(/\.|\+.*/, "") + "@" + email.split("@").last }
+  normalizes :email, with: lambda { |email|
+                             email.downcase.split("@").first.gsub(/\.|\+.*/, "") + "@" + email.split("@").last
+                           }
 
   generates_token_for :magic_link, expires_in: 15.minutes do
     last_logged_at

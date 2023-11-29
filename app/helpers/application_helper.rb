@@ -6,6 +6,6 @@ module ApplicationHelper
   # refs: https://docs.gravatar.com/gravatar-images/ruby/
   def gavatar_url(email)
     hash = Digest::MD5.hexdigest(email)
-    return "https://www.gravatar.com/avatar/#{hash}"
+    "https://www.gravatar.com/avatar/#{hash}"
   end
 end

@@ -15,11 +15,9 @@ class LinksController < ApplicationController
     @link ||= Link.new(url: cookies[:link_form_url])
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def create
     Link.create! link_params.with_defaults(user: Current.user)

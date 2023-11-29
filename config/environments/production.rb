@@ -53,8 +53,8 @@ Rails.application.configure do
 
   # Log to STDOUT by default
   config.logger = ActiveSupport::Logger.new(STDOUT)
-    .tap { |logger| logger.formatter = ::Logger::Formatter.new }
-    .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+                                       .tap { |logger| logger.formatter = ::Logger::Formatter.new }
+                                       .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
@@ -73,14 +73,14 @@ Rails.application.configure do
 
   # Action mailer
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_options = { from: ENV.fetch("SMTP_USERNAME") { } }
+  config.action_mailer.default_options = { from: ENV.fetch("SMTP_USERNAME", nil) }
   config.action_mailer.default_url_options = { host: ENV.fetch("SITE_HOST") { "localhost:3000" } }
   config.action_mailer.smtp_settings = {
     address: "smtp.exmail.qq.com",
     port: 465,
     domain: "yuler.cc",
-    user_name: ENV.fetch("SMTP_USERNAME") { },
-    password: ENV.fetch("SMTP_PASSWORD") { },
+    user_name: ENV.fetch("SMTP_USERNAME", nil),
+    password: ENV.fetch("SMTP_PASSWORD", nil),
     authentication: "plain",
     enable_starttls: true,
     ssl: true,

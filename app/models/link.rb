@@ -7,7 +7,7 @@ class Link < ApplicationRecord
   default_scope { recent_first }
   scope :recent_first, -> { order(created_at: :desc) }
 
-  validates :url, format: { with: /\Ahttps?:\/\/.*\z/, message: "must start with http:// or https://" }
+  validates :url, format: { with: %r{\Ahttps?://.*\z}, message: "must start with http:// or https://" }
 
   broadcasts_refreshes
 
@@ -16,7 +16,7 @@ class Link < ApplicationRecord
   end
 
   after_update do
-    self.broadcast_replace_to(self)
+    broadcast_replace_to(self)
   end
 
   private
@@ -28,7 +28,7 @@ class Link < ApplicationRecord
   def unique_code
     loop do
       code = SecureRandom.alphanumeric(10)
-      return code unless Link.exists?(code: code)
+      return code unless Link.exists?(code:)
     end
   end
 end
