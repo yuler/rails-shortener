@@ -1,5 +1,5 @@
-<div class="mx-auto max-w-md p-6 bg-white dark:bg-gray-800 rounded-lg border">
-  <h2 class="text-2xl font-semibold text-gray-700 dark:text-white">Sign in with Magic Link</h2>
+<div class="mx-auto max-w-md p-6 bg-white rounded-lg border">
+  <h2 class="text-2xl font-semibold text-gray-700">Sign in with Magic Link</h2>
   <%= form_with model: @user, url: login_path, class: "mt-8 space-y-4" do |f| %>
     <%= render partial: "shared/form_errors", locals: { object: f.object } %>
     <div class="space-y-2">
@@ -8,7 +8,7 @@
     </div>
     <%= f.submit "Send Magic Link", disable_with: "Submitting...", class: "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full cursor-pointer" %>
   <% end %>
-  <p class="text-sm text-gray-500 dark:text-gray-400">
+  <p class="text-sm text-gray-500">
     A magic link will be sent to your email address that will sign you in instantly.
   </p>
 </div>

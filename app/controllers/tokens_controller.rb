@@ -8,7 +8,7 @@ class TokensController < ApplicationController
   end
 
   def create
-    @token = Token.create(token_params.with_defaults(user: Current.user))
+    @token = Token.create token_params.with_defaults(user: Current.user)
     if @token.save
       redirect_to ({ action: :index }), notice: "Token successfully created"
     else
@@ -19,9 +19,9 @@ class TokensController < ApplicationController
   def destroy
     @token = Token.find(params[:id])
     if @token.destroy
-      redirect_to ({ action: :index }), notice: "Token successfully deleted"
+      redirect_to settings_tokens_path, notice: "Token successfully deleted"
     else
-      redirect_to ({ action: :index }), alert: "Something went wrong"
+      redirect_to settings_tokens_path, alert: "Something went wrong"
     end
   end
 

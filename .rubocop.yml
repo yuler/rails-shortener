@@ -17,3 +17,5 @@ Layout/MultilineOperationIndentation:
   Enabled: false
 Layout/SpaceInsideHashLiteralBraces:
   Enabled: false
+Layout/LineLength:
+  Max: 160

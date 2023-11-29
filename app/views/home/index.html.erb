@@ -1,12 +1,12 @@
 <div class="prose mx-auto mt-28 px-5">
   <div class="py-16 text-center">
-    <h1 class="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">Shorten Your URL</h1>
-    <p class="mt-4 text-gray-600 dark:text-gray-400 sm:text-lg md:text-xl">
+    <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">Shorten Your URL</h1>
+    <p class="mt-4 text-gray-600 sm:text-lg md:text-xl">
       Simplify your links, track &amp; manage them effortlessly
     </p>
   </div>
 
   <%= render partial: "links/form", locals: {link: @link} %>
-
+  
   <%= render partial: "links/link", collection: @links %>
 </div>
