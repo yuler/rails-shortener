@@ -19,6 +19,7 @@
 
 ## TODO
 
-- [ ] Design Home Page
+- [ ] Fix cookies['link_form_url'] not work
 - [ ] Expose result API
+- [ ] Design Home Page
 - [ ] Add widget for other site embed
