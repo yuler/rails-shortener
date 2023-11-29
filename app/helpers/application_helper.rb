@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def gavatar_image_tag(email, **kwarg)
-    image_tag gavatar_url(email), **kwarg
+  def gavatar_image_tag(email, **)
+    image_tag(gavatar_url(email), **)
   end
 
   # refs: https://docs.gravatar.com/gravatar-images/ruby/

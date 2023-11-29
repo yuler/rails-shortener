@@ -1,6 +1,7 @@
 require: rubocop-rails
 
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 3.2.2
 
 Style/FrozenStringLiteralComment:
@@ -19,3 +20,5 @@ Layout/SpaceInsideHashLiteralBraces:
   Enabled: false
 Layout/LineLength:
   Max: 160
+Rails/I18nLocaleTexts:
+  Enabled: false
