@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include Authentication
-  include SetCurrentRequestDetails
+  include SetCurrent
 
   def login(user)
     user.touch :last_logged_at
