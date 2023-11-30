@@ -2,7 +2,7 @@ module Authentication
   extend ActiveSupport::Concern
 
   included do
-    before_action :required_authenticate
+    before_action :restore_authentication, :required_authenticate
     helper_method :logged_in?
   end
 
@@ -23,7 +23,7 @@ module Authentication
   end
 
   def restore_authentication
-    user = User.find_by(id: cookies.signed[:user_id])
+    user = User.find(cookies.signed[:user_id]) if cookies.signed[:user_id]
     authenticate_as(user) if user
   end
 

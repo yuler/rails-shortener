@@ -3,14 +3,10 @@ class ApplicationController < ActionController::Base
   include SetCurrent
 
   def login(user)
-    user.touch :last_logged_at
-    reset_session
-    session[:user_id] = user.id
-    Current.user = user
+    authenticate_as(user)
   end
 
   def logout
-    reset_session
-    Current.user = nil
+    reset_authentication
   end
 end

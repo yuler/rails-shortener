@@ -23,14 +23,14 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    logout
+    redirect_to root_path
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:email)
-  end
-
-  def destroy
-    logout
-    redirect_to root_path
   end
 end

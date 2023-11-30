@@ -26,10 +26,10 @@
       </h1>
 
       <nav class="flex gap-4">
-        <% if Current.user %>
+        <% if logged_in? %>
           <%= link_to gavatar_image_tag(Current.user.email), settings_url, class: "w-10 h-10 border border-2 border-gray-200 rounded-full" %>
         <% else %>
-          <%= link_to "Sign in", login_path, class: "text-gray-600 hover:text-gray-800" %>
+          <%= link_to "Login", login_path, class: "text-gray-600 hover:text-gray-800" %>
         <% end %>
       </nav>
     </header>
