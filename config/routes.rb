@@ -29,6 +29,13 @@ Rails.application.routes.draw do
   # Root
   root "home#index"
 
+  # API
+  namespace :api, defaults: { format: :json } do
+    get "test" => "root#test"
+
+    resources :links, only: %i[index show create update destroy]
+  end
+
   # Sidekiq, refs: https://github.com/sidekiq/sidekiq/wiki/Monitoring#rails-http-basic-auth-from-routes
   if Rails.env.production?
     Sidekiq::Web.use Rack::Auth::Basic do |username, password|
