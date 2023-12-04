@@ -1,5 +1,7 @@
 module Api
   class BaseController < ActionController::API
+    include ApiAuthentication
+
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
     private

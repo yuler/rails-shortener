@@ -31,7 +31,8 @@ Rails.application.routes.draw do
 
   # API
   namespace :api, defaults: { format: :json } do
-    get "test" => "root#test"
+    get "test" => "root#test", as: :test
+    get "protected" => "root#protected", as: :protected
 
     resources :links, only: %i[index show create update destroy]
   end
