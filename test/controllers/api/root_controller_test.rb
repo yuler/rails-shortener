@@ -17,8 +17,7 @@ class Api::RootControllerTest < ActionDispatch::IntegrationTest
     get api_protected_url, headers: { "Authorization" => "Bearer #{tokens(:token_one).value}" }
     assert_response :success
     assert_equal({ "message" => "Protected endpoint" }, response.parsed_body)
-    p users(:user_one).id
-    p Current.user&.id
-    # assert_equal users(:user_one).id, Current.user.id
+    # TODO:
+    # assert_equal Current.user.id, assigns(:user).id
   end
 end
