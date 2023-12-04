@@ -1,4 +1,4 @@
-module API
+module Api
   class LinksController < Api::BaseController
     def index
       @links = Link.all
