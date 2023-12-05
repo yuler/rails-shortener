@@ -26,10 +26,10 @@ module ApiAuthentication
   end
 
   def authenticate_as(token)
-    user = Token.find_by(value: token).user
+    user = Token.find_by(value: token)&.user
 
     unless user
-      render json: { message: "Unauthorized" }, status: :unauthorized unless token
+      render json: { message: "Unauthorized" }, status: :unauthorized
       return
     end
 

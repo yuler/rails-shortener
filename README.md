@@ -22,6 +22,7 @@
 ```bash
 TOKEN=xxx
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $Token" -d '{"link": {"url": "https://github.com/yuler"}}' https://yuler.cc/api/link
+curl -H "Authorization: Bearer $Token" https://yuler.cc/api/link
 ```
 
 ## TODO

@@ -20,4 +20,10 @@ class Api::RootControllerTest < ActionDispatch::IntegrationTest
     # TODO:
     # assert_equal Current.user.id, assigns(:user).id
   end
+
+  test "root#protected w failed token" do
+    get api_protected_url, headers: { "Authorization" => "Bearer xxx" }
+    assert_response :unauthorized
+    assert_equal({ "message" => "Unauthorized" }, response.parsed_body)
+  end
 end
