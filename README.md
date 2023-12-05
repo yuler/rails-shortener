@@ -20,9 +20,9 @@
 ## API
 
 ```bash
-TOKEN=xxx
-curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $Token" -d '{"link": {"url": "https://github.com/yuler"}}' https://yuler.cc/api/link
-curl -H "Authorization: Bearer $Token" https://yuler.cc/api/link
+TOKEN=xxx # https://yuler.cc/djtjA6bOM1
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" -d '{"link": {"url": "https://github.com/yuler"}}' https://yuler.cc/api/links
+curl -H "Authorization: Bearer $TOKEN" https://yuler.cc/api/links
 ```
 
 ## TODO
