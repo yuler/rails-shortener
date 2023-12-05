@@ -17,9 +17,15 @@
 - <https://github.com/nelsontky/gh-pages-url-shortener>
 - <https://github.com/formkit/shorten>
 
+## API
+
+```bash
+TOKEN=xxx
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $Token" -d '{"link": {"url": "https://github.com/yuler"}}' https://yuler.cc/api/link
+```
+
 ## TODO
 
 - [ ] Fix cookies['link_form_url'] not work
-- [ ] Expose result API
 - [ ] Design Home Page
 - [ ] Add widget for other site embed
