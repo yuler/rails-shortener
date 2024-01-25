@@ -1,6 +1,7 @@
 class LinksController < ApplicationController
   before_action :set_link, only: %i[show edit update destroy short]
   before_action :store_url_in_cookie, only: [:create]
+  allow_unauthenticated_access only: %i[short]
 
   def show; end
 
