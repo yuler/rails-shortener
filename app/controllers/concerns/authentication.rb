@@ -2,7 +2,7 @@ module Authentication
   extend ActiveSupport::Concern
 
   included do
-    before_action :restore_authentication, :required_authenticate
+    before_action :required_authenticate
     helper_method :logged_in?
   end
 
