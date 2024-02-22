@@ -17,6 +17,12 @@
 - <https://github.com/nelsontky/gh-pages-url-shortener>
 - <https://github.com/formkit/shorten>
 
+## Kamal
+
+```bash
+kamal app exec -i 'bin/rails console'
+```
+
 ## API
 
 ```bash
